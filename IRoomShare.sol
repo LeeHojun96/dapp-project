@@ -57,6 +57,6 @@ interface IRoomShare {
 
     // optional 2
     // caution: 변수의 저장공간에 유의한다.
-    // 첫날부터 시작해 함수를 실행한 날짜까지 isRented 필드의 초기화를 진행한다.
-    function initializeRoomShare(uint _roomId, uint day) external;
+    // isRented 필드의 초기화를 진행한다. 
+    function initializeRoomShare(uint _roomId) external;
 }
