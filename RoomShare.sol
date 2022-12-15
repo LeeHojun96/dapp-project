@@ -21,7 +21,7 @@ contract RoomShare {
     emit NewRoom(roomId++);
   }
 
-  function rentRoom(uint _roomId, uint checkInDate, uint checkOutDate) payable external {
+  function rentRoom(uint _roomId, uint year, uint checkInDate, uint checkOutDate) payable external {
     /**
      * 1. roomId에 해당하는 방을 조회하여 아래와 같은 조건을 만족하는지 체크한다.
      *    a. 현재 활성화(isActive) 되어 있는지
@@ -32,7 +32,7 @@ contract RoomShare {
      */
   }
 
-  function _createRent(uint256 _roomId, uint256 checkInDate, uint256 checkoutDate) internal {
+  function _createRent(uint256 _roomId, uint year, uint256 checkInDate, uint256 checkoutDate) internal {
     /**
      * 1. 함수를 호출한 사용자 계정으로 대여 객체를 만들고, 변수 저장 공간에 유의하며 체크인날짜부터 체크아웃날짜에 해당하는 배열 인덱스를 체크한다(초기값은 false이다.).
      * 2. 계정과 대여 객체들을 매핑한다. (대여 목록)
