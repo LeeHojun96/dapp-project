@@ -174,8 +174,8 @@ const displayMyRents = async () => {
 		html += "<tr>";
 			html += "<td>" + myRents[i].id + "</td>"
 			html += "<td>" + myRents[i].rId + "</td>"
-			html += "<td>" + dateFromDay(currentYear,myRents[i].checkInDate).toDateString() + "</td>"
-			html += "<td>" + dateFromDay(currentYear,myRents[i].checkOutDate).toDateString() + "</td>"
+			html += "<td>" + dateFromDay(myRents[i].yearOfRent,myRents[i].checkInDate).toDateString() + "</td>"
+			html += "<td>" + dateFromDay(myRents[i].yearOfRent,myRents[i].checkOutDate).toDateString() + "</td>"
 		html += "</tr>";
 	}
 	document.getElementById('myRents').innerHTML = html;
