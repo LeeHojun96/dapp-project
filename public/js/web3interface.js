@@ -251,14 +251,14 @@ const rentRoom = async () => {
   const jsonobj = returnOptionsJSON();
   const roomId = jsonobj.id;
 
-  await _rentRoom(roomId, checkInDate, checkOutDate, _price);
+  await _rentRoom(roomId, currentYear, checkInDate, checkOutDate, _price);
 
   await _updateUserBalance(user);
   _updateRents();
 
 }
 
-const _rentRoom = async (roomId, checkInDate, checkOutDate, price) => {
+const _rentRoom = async (roomId, currentYear, checkInDate, checkOutDate, price) => {
   // 체크인 날짜와 체크아웃 날짜의 차이, 하루당 대여 요금을 곱하여 컨트랙트로 송금한다. 
   // 대여가 성공하고 트랜잭션이 올바르면 알림 팝업을 띄운다.
   // 이더의 양이 맞지 않아서 트랜잭션이 종료되었을 경우에는 다른 팝업을 띄운다. (Solidity의 require과 관련됨)
