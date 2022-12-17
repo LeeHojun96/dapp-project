@@ -43,8 +43,8 @@ interface IRoomShare {
     function shareRoom( string calldata name, string calldata location, uint price ) external;
 
     function rentRoom(uint _roomId, uint year, uint checkInDate, uint checkOutDate) payable external;
-        function _createRent(uint256 _roomId, uint year, uint256 checkInDate, uint256 checkoutDate) external ; // internal
-        function _sendFunds (address owner, uint256 value) external ; // internal
+        // function _createRent(uint256 _roomId, uint year, uint256 checkInDate, uint256 checkoutDate) internal;
+        // function _sendFunds (address owner, uint256 value) internal;
 
 
     function recommendDate(uint _roomId, uint checkInDate, uint checkOutDate) external view returns(uint[2] memory);
