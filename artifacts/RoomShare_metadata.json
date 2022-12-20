@@ -1,0 +1,481 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "roomId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "rentId",
+						"type": "uint256"
+					}
+				],
+				"name": "NewRent",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "roomId",
+						"type": "uint256"
+					}
+				],
+				"name": "NewRoom",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "getMyRents",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "rId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "yearOfRent",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "checkInDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "checkOutDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "renter",
+								"type": "address"
+							}
+						],
+						"internalType": "struct IRoomShare.Rent[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_roomId",
+						"type": "uint256"
+					}
+				],
+				"name": "getRoomRentHistory",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "rId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "yearOfRent",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "checkInDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "checkOutDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "renter",
+								"type": "address"
+							}
+						],
+						"internalType": "struct IRoomShare.Rent[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_roomId",
+						"type": "uint256"
+					}
+				],
+				"name": "initializeRoomShare",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_roomId",
+						"type": "uint256"
+					}
+				],
+				"name": "markRoomAsInactive",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_roomId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "checkInDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "checkOutDate",
+						"type": "uint256"
+					}
+				],
+				"name": "recommendDate",
+				"outputs": [
+					{
+						"internalType": "uint256[2]",
+						"name": "",
+						"type": "uint256[2]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "rentDB_renter",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "rId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "yearOfRent",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "checkInDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "checkOutDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "renter",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "rentDB_room",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "rId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "yearOfRent",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "checkInDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "checkOutDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "renter",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "rentId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_roomId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "year",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "checkInDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "checkOutDate",
+						"type": "uint256"
+					}
+				],
+				"name": "rentRoom",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "roomDB",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "isActive",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "roomId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "shareRoom",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"dapp-project/RoomShare.sol": "RoomShare"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"dapp-project/IRoomShare.sol": {
+			"keccak256": "0xa65df0471d66ad71680ea02cec5573560c5f70a52cede22458359f6ac50f0e05",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://fe2c2743ab40f6daf0bc6cb875648b65e5746a016bad3876cde98806dccd183f",
+				"dweb:/ipfs/QmTBhKhzugbidp6a8jhJhNLiACTRr6DJ6Y9ZPFv3fWocDb"
+			]
+		},
+		"dapp-project/RoomShare.sol": {
+			"keccak256": "0x1ffac86770012c4f9b1293587c08a123c28d4344b1a1004fc255ae61321c273c",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://41e3e62b019e18ce10329042fd04f979502572b3cd310482a689378cba3c7b18",
+				"dweb:/ipfs/QmWt1K65zTAzpGuA4Ep6XuJTzHLfdkZBnCCxNHmpwyfQ5f"
+			]
+		}
+	},
+	"version": 1
+}
