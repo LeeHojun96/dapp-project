@@ -10,10 +10,10 @@ const logIn = async () => {
   const ID = prompt("choose your ID");
 
   // 개발 시 (ganache)
-  web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+  // web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
 
   // 과제 제출 시 (metamask)
-  // web3 = await metamaskRequest();
+  web3 = await metamaskRequest();
 
   user = await getAccountInfos(Number(ID));
 
