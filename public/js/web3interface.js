@@ -4,7 +4,7 @@ let user;
 const mEthPrice = 1600;
 const currentYear = 2022;
 
-const contract_address = "0xD8d75A1AdB49cc8701EA9dCBBf942dc3f2C0B1b5"; // 따옴표 안에 주소값 복사 붙여넣기
+const contract_address = "0x6858aad85Aa82e9bcEcF0d8b77Ce314681C4c5bF"; // 따옴표 안에 주소값 복사 붙여넣기
 
 const logIn = async () => {
   const ID = prompt("choose your ID");
@@ -95,14 +95,14 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById('logIn').addEventListener("click", logIn);
   document.getElementById('rentRoom').addEventListener("click", rentRoom);
   document.getElementById('shareRoom').addEventListener("click", shareRoom);
-  document.getElementById('InActive').addEventListener("click", markRoomAsInactive);  ///
-  document.getElementById('ClearAll').addEventListener("click", intializeRoomShare);  ///
+  // document.getElementById('InActive').addEventListener("click", markRoomAsInactive);  ///
+  // document.getElementById('ClearAll').addEventListener("click", intializeRoomShare);  ///
 
   checkInDatedom = document.getElementById('checkInDate');
   checkOutDatedom = document.getElementById('checkOutDate');
   mEth2krwdom = document.getElementById('mEth2krw');
   pricedom = document.getElementById('price');
-  roomIddom = document.getElementById('roomId');
+  // roomIddom = document.getElementById('roomId');
 
   checkInDatedom.addEventListener("input",()=>{
     const datevalformatted = checkInDatedom.value.replace(/(\d{4})(\d{2})(\d{2})|(\d{4})-(\d{2})(\d{2})/, "$1$4-$2$5-$3$6");
@@ -126,6 +126,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	roomsSelect = document.getElementById("rooms-select");
   roomsSelect.addEventListener('change', displayRoomHistory);
+
+
+//   선택적 구현
+  document.getElementById("InActive").addEventListener("click", () => {
+    const rId = document.getElementById("roomId").value;
+    markRoomAsInactive(rId)
+  });
+
+  document.getElementById("ClearAll").addEventListener("click", () => {
+    const rId = document.getElementById("roomId").value;
+    initializeRoomShare(rId)
+  });
 });
 
 const getDayOfYear = (date) => {
@@ -371,11 +383,10 @@ const displayRoomHistory = async () => {
 	document.getElementById('roomHistory').innerHTML = html;
 }
 
-const markRoomAsInactive = async () => {
+const markRoomAsInactive = async (_roomId) => {
   // optional 1: 예약 비활성화
   // 소유한 방 중에서 선택한 방의 대여 가능 여부를 비활성화 한다.
   try{
-    let _roomId = roomIddom.value;
     let roomShare = await getRoomShareContract();
     await roomShare.methods.markRoomAsInactive(_roomId).send({from: user, gas: 3000000});
     alert("Room inactive");
@@ -389,11 +400,10 @@ const markRoomAsInactive = async () => {
 
 
 
-const intializeRoomShare = async () => {
+const initializeRoomShare = async (_roomId) => {
   // optional 2: 대여 초기화
   // 소유한 방 중에서 선택한 방의 대여된 일정을 모두 초기화 한다.
   try {
-    let _roomId = roomIddom.value;
     let roomShare = await getRoomShareContract();
     await roomShare.methods.initializeRoomShare(_roomId).send({from: user, gas: 3000000});
     alert("Initialize room share");
