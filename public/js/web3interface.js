@@ -4,7 +4,7 @@ let user;
 const mEthPrice = 1600;
 const currentYear = 2022;
 
-const contract_address = "0x6858aad85Aa82e9bcEcF0d8b77Ce314681C4c5bF"; // 따옴표 안에 주소값 복사 붙여넣기
+const contract_address = "0x8ed87B418bA3dE3536177133462f06475E397fD6"; // 따옴표 안에 주소값 복사 붙여넣기
 
 const logIn = async () => {
   const ID = prompt("choose your ID");
@@ -176,10 +176,11 @@ const _shareRoom = async (name, location, price) => {
   try {
     let roomShare = await getRoomShareContract();
     await roomShare.methods.shareRoom(name, location, price).send({from: user, gas: 3000000});
-    alert("등록.");
+    alert("방 등록 성공");
   }
   catch (err) {
-	  alert(err);
+	  alert("방 등록 실패");
+    console.log(err);
   }
 }
 
